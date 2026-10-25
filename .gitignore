@@ -15,3 +15,6 @@ coverage.*
 # Local secrets — never commit a real token
 .env
 .env.local
+# Stray binaries from `go build ./cmd/...` at the repo root
+/routesync
+/newapi-operator
