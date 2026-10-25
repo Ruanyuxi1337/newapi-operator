@@ -1,0 +1,93 @@
+name: Upstream drift
+
+# Keeps the embedded New API route table honest: weekly, resolve the newest New
+# API release, regenerate the table from its router source, and open an issue
+# when the committed table is missing routes (or still lists routes upstream
+# deleted). Fix it by running `make sync` and reviewing internal/spec.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  drift:
+    name: Detect route-table drift
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+          cache: true
+
+      - name: Build routesync
+        run: go build -o /tmp/routesync ./cmd/routesync
+
+      - name: Resolve newest New API release
+        id: upstream
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="$(curl -fsSL -H "Authorization: Bearer $GITHUB_TOKEN" \
+            https://api.github.com/repos/QuantumNous/new-api/releases/latest \
+            | python3 -c 'import json,sys; print(json.load(sys.stdin)["tag_name"])')"
+          if [ -z "$tag" ]; then
+            echo "could not resolve the latest New API release" >&2
+            exit 1
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "latest upstream release: $tag"
+
+      - name: Diff embedded table against upstream
+        id: diff
+        run: |
+          set +e
+          /tmp/routesync --tag "${{ steps.upstream.outputs.tag }}" --out '' --check \
+            > /tmp/drift.txt 2>&1
+          rc=$?
+          set -e
+          if [ "$rc" -eq 0 ]; then
+            echo "drifted=false" >> "$GITHUB_OUTPUT"
+            cat /tmp/drift.txt
+          else
+            echo "drifted=true" >> "$GITHUB_OUTPUT"
+            {
+              echo "Embedded route table is out of date for New API \`${{ steps.upstream.outputs.tag }}\`."
+              echo
+              echo "Diff (\`+\` missing here, \`-\` no longer upstream):"
+              echo
+              echo '```'
+              sed -n '1,200p' /tmp/drift.txt
+              echo '```'
+              echo
+              echo "To fix:"
+              echo '```bash'
+              echo "make sync           # regenerate from upstream"
+              echo "make sync-baseline  # refresh the committed baseline"
+              echo "go test ./..."      # tests must pass again"
+              echo '```'
+              echo
+              echo "_Automated by .github/workflows/upstream-drift.yml_"
+            } > /tmp/issue.md
+          fi
+
+      - name: Open or update the drift issue
+        if: steps.diff.outputs.drifted == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.upstream.outputs.tag }}
+        run: |
+          title="Route table behind New API ${TAG}"
+          existing="$(gh issue list --state open --search "in:title \"${title}\"" --json number --jq '.[0].number // empty')"
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file /tmp/issue.md
+            echo "commented on issue #$existing"
+          else
+            gh issue create --title "$title" --body-file /tmp/issue.md
+          fi

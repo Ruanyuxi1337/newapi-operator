@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Build, vet, test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+          cache: true
+
+      - name: gofmt
+        run: |
+          unformatted="$(gofmt -l .)"
+          if [ -n "$unformatted" ]; then
+            echo "These files are not gofmt'd:"
+            echo "$unformatted"
+            exit 1
+          fi
+
+      - name: go vet
+        run: go vet ./...
+
+      - name: go test (race)
+        run: go test ./... -race -count=1
+
+      - name: build
+        run: make build
+
+      - name: version output
+        run: ./bin/newapi-operator --version
+
+      - name: route table integrity
+        run: |
+          ./bin/routesync --tag "$(grep -oP 'UpstreamVersion = "\K[^"]+' internal/spec/routes_gen.go)" \
+            --out /dev/null --check
+
+  drift:
+    name: Upstream drift check
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+          cache: true
+
+      - name: Compare embedded table with the newest New API release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          go build -o /tmp/routesync ./cmd/routesync
+          /tmp/routesync --tag latest --out /dev/null --check \
+            || echo "::warning::The route table is behind the latest New API release. Run 'make sync' and review internal/spec."

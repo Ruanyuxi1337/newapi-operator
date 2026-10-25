@@ -1,0 +1,17 @@
+# Binaries
+/bin/
+*.exe
+
+# Test and coverage output
+*.test
+*.out
+coverage.*
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Local secrets — never commit a real token
+.env
+.env.local

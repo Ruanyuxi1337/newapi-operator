@@ -1,0 +1,1874 @@
+[
+ {
+  "method": "GET",
+  "path": "/api/about",
+  "group": "about",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/audit/self",
+  "group": "audit",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/authz/catalog",
+  "group": "authz",
+  "source": "authz-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/channel/",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/channel/:id",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/:id",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/:id/codex/refresh",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/:id/codex/usage",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/:id/codex/usage/reset",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/:id/codex/usage/reset-credits",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/:id/key",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/:id/sglang/status",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/:id/status",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/:id/vllm/status",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/batch",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/batch/tag",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/copy/:id",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/default_base_urls",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/channel/disabled",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/fetch_models",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/fetch_models/:id",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/fix",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/models",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/models_enabled",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/multi_key/manage",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/channel/ollama/delete",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/ollama/pull",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/ollama/pull/stream",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/ollama/version/:id",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/ops",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/priority/order",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/priority/reorder",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/search",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/status/batch",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/channel/tag",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/tag/disabled",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/tag/enabled",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/tag/models",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/test",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/test/:id",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/update_balance",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/update_balance/:id",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/upstream_updates/apply",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/upstream_updates/apply_all",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/upstream_updates/detect",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/upstream_updates/detect_all",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/creem/webhook",
+  "group": "creem",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/custom-oauth-provider/",
+  "group": "custom-oauth-provider",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/custom-oauth-provider/",
+  "group": "custom-oauth-provider",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/custom-oauth-provider/:id",
+  "group": "custom-oauth-provider",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/custom-oauth-provider/:id",
+  "group": "custom-oauth-provider",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/custom-oauth-provider/:id",
+  "group": "custom-oauth-provider",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/custom-oauth-provider/discovery",
+  "group": "custom-oauth-provider",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/data/",
+  "group": "data",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/data/flow",
+  "group": "data",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/data/flow/self",
+  "group": "data",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/data/self",
+  "group": "data",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/data/users",
+  "group": "data",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/deployments/",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/deployments/",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/deployments/:id",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/deployments/:id",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/deployments/:id",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/deployments/:id/containers",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/deployments/:id/containers/:container_id",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/deployments/:id/extend",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/deployments/:id/logs",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/deployments/:id/name",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/deployments/available-replicas",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/deployments/check-name",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/deployments/hardware-types",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/deployments/locations",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/deployments/price-estimation",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/deployments/search",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/deployments/settings",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/deployments/settings/test-connection",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/deployments/test-connection",
+  "group": "deployments",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/group/",
+  "group": "group",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/home_page_content",
+  "group": "home_page_content",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/log/",
+  "group": "log",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/log/channel_affinity_usage_cache",
+  "group": "log",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/log/export",
+  "group": "log",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/log/search",
+  "group": "log",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/log/self",
+  "group": "log",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/log/self/export",
+  "group": "log",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/log/self/search",
+  "group": "log",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/log/self/stat",
+  "group": "log",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/log/stat",
+  "group": "log",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/log/token",
+  "group": "log",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/mj/",
+  "group": "mj",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/mj/self",
+  "group": "mj",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/models/",
+  "group": "models",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/models/",
+  "group": "models",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/models/",
+  "group": "models",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/models/:id",
+  "group": "models",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/models/:id",
+  "group": "models",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/models/delete",
+  "group": "models",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/models/missing",
+  "group": "models",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/models/search",
+  "group": "models",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/models/sync_upstream",
+  "group": "models",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/models/sync_upstream/preview",
+  "group": "models",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/notice",
+  "group": "notice",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/oauth/:provider",
+  "group": "oauth",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/oauth/email/bind",
+  "group": "oauth",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/oauth/email/bind/resend",
+  "group": "oauth",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/oauth/email/bind/start",
+  "group": "oauth",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/oauth/state",
+  "group": "oauth",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/oauth/telegram/bind/:flow_token",
+  "group": "oauth",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/oauth/telegram/bind/start",
+  "group": "oauth",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/oauth/telegram/login",
+  "group": "oauth",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/oauth/wechat",
+  "group": "oauth",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/oauth/wechat/bind",
+  "group": "oauth",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/option/",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/option/",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/option/channel_affinity_cache",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/option/channel_affinity_cache",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/option/model_pricing",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/option/model_pricing",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/option/model_pricing/convert",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/option/model_pricing/preview",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/option/passkey/domains",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/option/payment_compliance",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/option/request_policy",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/option/request_policy",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/option/rest_model_ratio",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/option/waffo-pancake/catalog",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/option/waffo-pancake/pair",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/option/waffo-pancake/save",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/option/waffo-pancake/subscription-product",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/option/waffo-pancake/subscription-product-options",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/perf-metrics/",
+  "group": "perf-metrics",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/perf-metrics/summary",
+  "group": "perf-metrics",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/performance/disk_cache",
+  "group": "performance",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/performance/gc",
+  "group": "performance",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/performance/logs",
+  "group": "performance",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/performance/logs",
+  "group": "performance",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/performance/reset_stats",
+  "group": "performance",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/performance/stats",
+  "group": "performance",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/plugin/task/",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/plugin/task/",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/plugin/task/",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/plugin/task/:key",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/plugin/task/:key/activate",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/plugin/task/:key/dryrun",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/plugin/task/:key/icon",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/plugin/task/:key/status",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/plugin/task/:key/versions",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/plugin/task/:key/versions/:version",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/plugin/task/marketplace/sources",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/plugin/task/marketplace/sources",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/plugin/task/runtime/status",
+  "group": "plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/prefill_group/",
+  "group": "prefill_group",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/prefill_group/",
+  "group": "prefill_group",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/prefill_group/",
+  "group": "prefill_group",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/prefill_group/:id",
+  "group": "prefill_group",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/pricing",
+  "group": "pricing",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/privacy-policy",
+  "group": "privacy-policy",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/rankings",
+  "group": "rankings",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/ratio_config",
+  "group": "ratio_config",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/ratio_sync/channels",
+  "group": "ratio_sync",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/ratio_sync/fetch",
+  "group": "ratio_sync",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/redemption/",
+  "group": "redemption",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/redemption/",
+  "group": "redemption",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/redemption/",
+  "group": "redemption",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/redemption/:id",
+  "group": "redemption",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/redemption/:id",
+  "group": "redemption",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/redemption/batch",
+  "group": "redemption",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/redemption/invalid",
+  "group": "redemption",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/redemption/search",
+  "group": "redemption",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/reset_password",
+  "group": "reset_password",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/setup",
+  "group": "setup",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/setup",
+  "group": "setup",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/status",
+  "group": "status",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/status/test",
+  "group": "status",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/stripe/webhook",
+  "group": "stripe",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/admin/bind",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/subscription/admin/plans",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/admin/plans",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/subscription/admin/plans/:id",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/subscription/admin/plans/:id",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/admin/plans/:id/subscriptions/reset",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/subscription/admin/user_subscriptions/:id",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/admin/user_subscriptions/:id/invalidate",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/subscription/admin/users/:id/subscriptions",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/admin/users/:id/subscriptions",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/admin/users/:id/subscriptions/reset",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/balance/pay",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/creem/pay",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/subscription/epay/notify",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/epay/notify",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/epay/pay",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/subscription/epay/return",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/epay/return",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/subscription/plans",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/subscription/self",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/subscription/self/preference",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/stripe/pay",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/subscription/waffo-pancake/pay",
+  "group": "subscription",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/system-info/instances",
+  "group": "system-info",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/system-info/instances/:node_name",
+  "group": "system-info",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/system-info/stale-instances",
+  "group": "system-info",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/system-task/:task_id",
+  "group": "system-task",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/system-task/current",
+  "group": "system-task",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/system-task/history",
+  "group": "system-task",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/system-task/list",
+  "group": "system-task",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/system-task/log-cleanup",
+  "group": "system-task",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/task/",
+  "group": "task",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/task/:task_id/artifacts",
+  "group": "task",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/task/self",
+  "group": "task",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/token/",
+  "group": "token",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/token/",
+  "group": "token",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/token/",
+  "group": "token",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/token/:id",
+  "group": "token",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/token/:id",
+  "group": "token",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/token/:id/key",
+  "group": "token",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/token/auto-groups",
+  "group": "token",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/token/batch",
+  "group": "token",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/token/batch/keys",
+  "group": "token",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/token/search",
+  "group": "token",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/uptime/status",
+  "group": "uptime",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/usage/token/",
+  "group": "usage",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user-agreement",
+  "group": "user-agreement",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/user/",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/2fa/backup_codes",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/2fa/disable",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/2fa/enable",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/2fa/setup",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/2fa/stats",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/2fa/status",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/user/:id",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/:id",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/user/:id/2fa",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/user/:id/bindings/:binding_type",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/:id/oauth/bindings",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/user/:id/oauth/bindings/:provider_id",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/user/:id/reset_passkey",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/access_tokens/",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/access_tokens/",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/user/access_tokens/:id",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/user/access_tokens/:id",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/access_tokens/catalog",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/user/access_tokens/legacy",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/access_tokens/scopes",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/aff",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/aff_transfer",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/amount",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/auth/logout",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/auth/refresh",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/checkin",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/checkin",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/creem/pay",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/epay/notify",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/epay/notify",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/groups",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/login",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/login/2fa",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/login/encryption-key",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/login/passkey/begin",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/login/passkey/finish",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/login/verify",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/manage",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/models",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/oauth/bindings",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/user/oauth/bindings/:provider_id",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/user/passkey",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/passkey",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/passkey/login/begin",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/passkey/login/finish",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/passkey/register/begin",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/passkey/register/finish",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/passkey/verify/begin",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/passkey/verify/finish",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/pay",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/register",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/reset",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/search",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/user/self",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/self",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/user/self",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/self/groups",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/sessions",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/user/sessions/:sid",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/sessions/revoke-others",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/user/setting",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/stripe/amount",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/stripe/pay",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/topup",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/topup",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/topup/complete",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/topup/info",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/user/topup/self",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/waffo-pancake/amount",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/waffo-pancake/pay",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/waffo/amount",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/user/waffo/pay",
+  "group": "user",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/vendors/",
+  "group": "vendors",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/vendors/",
+  "group": "vendors",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/vendors/",
+  "group": "vendors",
+  "source": "api-router.go"
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/vendors/:id",
+  "group": "vendors",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/vendors/:id",
+  "group": "vendors",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/vendors/operations",
+  "group": "vendors",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/vendors/operations/preview",
+  "group": "vendors",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/vendors/search",
+  "group": "vendors",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/verification",
+  "group": "verification",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/verify",
+  "group": "verify",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/verify/methods",
+  "group": "verify",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/waffo-pancake/webhook/:env",
+  "group": "waffo-pancake",
+  "source": "api-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/waffo/webhook",
+  "group": "waffo",
+  "source": "api-router.go"
+ }
+]
