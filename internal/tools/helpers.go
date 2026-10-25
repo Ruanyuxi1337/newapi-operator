@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/Ruanyuxi1337/newapi-operator/internal/client"
+	"github.com/Ruanyuxi1337/newapi-operator/internal/spec"
 )
 
 // result is the uniform JSON envelope every tool returns.
@@ -18,7 +19,14 @@ type result struct {
 }
 
 // call performs an admin request and decodes the payload.
+//
+// The path is first resolved against the embedded route table so a trailing-slash
+// difference between this build and the running release cannot turn a POST into
+// a bodyless redirect.
 func (r *Registry) call(ctx context.Context, method, path string, q url.Values, body any) (any, error) {
+	if resolved, ok := spec.Resolve(method, path); ok {
+		path = resolved
+	}
 	resp, err := r.client.Do(ctx, method, path, q, body)
 	if err != nil {
 		return nil, err

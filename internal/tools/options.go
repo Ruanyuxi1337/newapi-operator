@@ -28,7 +28,7 @@ func (r *Registry) optionList() Tool {
 		Description: "Return the instance's system options (site name, registration policy, quota settings, rate limits and feature switches).",
 		Schema:      object("", map[string]any{}),
 		Handler: func(ctx context.Context, a Args) (any, error) {
-			return r.call(ctx, "GET", "/api/option", nil, nil)
+			return r.call(ctx, "GET", "/api/option/", nil, nil)
 		},
 	}
 }
@@ -52,7 +52,7 @@ func (r *Registry) optionSet() Tool {
 			if !ok {
 				return nil, errString("value is required")
 			}
-			return r.call(ctx, "PUT", "/api/option", nil, map[string]any{"key": key, "value": valueString(v)})
+			return r.call(ctx, "PUT", "/api/option/", nil, map[string]any{"key": key, "value": valueString(v)})
 		},
 	}
 }
@@ -156,7 +156,7 @@ func (r *Registry) logTools() []Tool {
 						q.Set(k, strconv.Itoa(n))
 					}
 				}
-				return r.call(ctx, "GET", "/api/log", q, nil)
+				return r.call(ctx, "GET", "/api/log/", q, nil)
 			},
 		},
 		{

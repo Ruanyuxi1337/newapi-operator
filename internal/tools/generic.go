@@ -58,6 +58,11 @@ New API answers a rejected call with HTTP 200 and {"success": false}; this tool 
 			if v, ok := a["body"]; ok {
 				body = v
 			}
+			// Normalise the trailing slash when the pair is known; otherwise send
+			// it verbatim so the caller still sees the real upstream response.
+			if resolved, known := spec.Resolve(method, path); known {
+				path = resolved
+			}
 			return r.call(ctx, method, path, q, body)
 		},
 	}

@@ -29,7 +29,7 @@ func (r *Registry) userList() Tool {
 			"page_size": intProp("Rows per page."),
 		}),
 		Handler: func(ctx context.Context, a Args) (any, error) {
-			return r.call(ctx, "GET", "/api/user", pageQuery(a), nil)
+			return r.call(ctx, "GET", "/api/user/", pageQuery(a), nil)
 		},
 	}
 }
@@ -124,7 +124,7 @@ func (r *Registry) userAccessTokens() Tool {
 			"include_catalog": boolProp("Also return the permission catalogue (every scope the instance recognises)."),
 		}),
 		Handler: func(ctx context.Context, a Args) (any, error) {
-			out, err := r.call(ctx, "GET", "/api/user/access_tokens", nil, nil)
+			out, err := r.call(ctx, "GET", "/api/user/access_tokens/", nil, nil)
 			if err != nil {
 				return nil, err
 			}
