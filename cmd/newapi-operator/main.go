@@ -12,6 +12,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"runtime/debug"
 	"strings"
 	"syscall"
 	"time"
@@ -27,13 +28,25 @@ import (
 // version is overridden at build time with -ldflags "-X main.version=...".
 var version = "dev"
 
+// buildVersion returns the linker-stamped version, falling back to the module
+// version recorded by `go install module@version`.
+func buildVersion() string {
+	if version != "dev" {
+		return version
+	}
+	if bi, ok := debug.ReadBuildInfo(); ok && bi.Main.Version != "" && bi.Main.Version != "(devel)" {
+		return bi.Main.Version
+	}
+	return version
+}
+
 func main() {
 	showVersion := flag.Bool("version", false, "print version information and exit")
 	flag.Parse()
 
 	if *showVersion {
 		fmt.Printf("newapi-operator %s (route table: New API %s, %d admin routes)\n",
-			version, spec.UpstreamVersion, len(spec.Routes))
+			buildVersion(), spec.UpstreamVersion, len(spec.Routes))
 		return
 	}
 
@@ -48,13 +61,14 @@ func run() error {
 	if err != nil {
 		return err
 	}
+	ver := buildVersion()
 	logger := newLogger(cfg)
 	slog.SetDefault(logger)
 
 	// stdio owns stdout for the MCP protocol — all logging goes to stderr.
 	if cfg.Transport == config.TransportStdio {
 		logger.Info("starting newapi-operator",
-			"version", version,
+			"version", ver,
 			"transport", string(cfg.Transport),
 			"base_url", cfg.BaseURL,
 			"read_only", cfg.ReadOnly,
@@ -76,10 +90,10 @@ func run() error {
 	server := mcp.NewServer(
 		&mcp.Implementation{
 			Name:    "newapi-operator",
-			Version: version,
+			Version: ver,
 		},
 		&mcp.ServerOptions{
-			Instructions: tools.Instructions(version, spec.UpstreamVersion),
+			Instructions: tools.Instructions(ver, spec.UpstreamVersion),
 			PageSize:     100,
 		},
 	)
@@ -96,19 +110,19 @@ func run() error {
 		}
 		return nil
 	case config.TransportHTTP:
-		return runHTTP(ctx, cfg, server, logger)
+		return runHTTP(ctx, cfg, server, logger, ver)
 	default:
 		return fmt.Errorf("unsupported transport %q", cfg.Transport)
 	}
 }
 
-func runHTTP(ctx context.Context, cfg *config.Config, server *mcp.Server, logger *slog.Logger) error {
+func runHTTP(ctx context.Context, cfg *config.Config, server *mcp.Server, logger *slog.Logger, ver string) error {
 	handler := mcp.NewStreamableHTTPHandler(func(*http.Request) *mcp.Server { return server }, nil)
 	mux := http.NewServeMux()
 	mux.Handle("/mcp", bearerAuth(cfg.HTTPToken, handler))
 	mux.HandleFunc("/healthz", func(w http.ResponseWriter, _ *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
-		fmt.Fprintf(w, `{"status":"ok","version":%q,"route_table":%q}`, version, spec.UpstreamVersion)
+		fmt.Fprintf(w, `{"status":"ok","version":%q,"route_table":%q}`, ver, spec.UpstreamVersion)
 	})
 
 	srv := &http.Server{
