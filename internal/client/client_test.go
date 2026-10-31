@@ -114,8 +114,16 @@ func TestRefusesNonAdminPaths(t *testing.T) {
 	c := newTestClient(t, func(w http.ResponseWriter, r *http.Request) {
 		t.Error("upstream must not be reached for a non-/api path")
 	}, false)
-	if _, err := c.Do(context.Background(), "GET", "/v1/chat/completions", nil, nil); err == nil {
-		t.Fatal("expected a path guard error")
+	for _, path := range []string{
+		"/v1/chat/completions",
+		"/api/../v1/chat/completions",
+		"/api/%2e%2e/v1/chat/completions",
+		"/api//v1/chat/completions",
+		"/api/channel/1\r\nX-Injected: 1",
+	} {
+		if _, err := c.Do(context.Background(), "GET", path, nil, nil); err == nil {
+			t.Errorf("%q: expected a path guard error", path)
+		}
 	}
 }
 

@@ -4,6 +4,7 @@ package main
 
 import (
 	"context"
+	"crypto/subtle"
 	"errors"
 	"flag"
 	"fmt"
@@ -132,9 +133,15 @@ func runHTTP(ctx context.Context, cfg *config.Config, server *mcp.Server, logger
 // bearerAuth guards the HTTP transport. The MCP endpoint is a full admin
 // control plane, so an unauthenticated listener is never acceptable.
 func bearerAuth(token string, next http.Handler) http.Handler {
+	const prefix = "Bearer "
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		got := strings.TrimPrefix(r.Header.Get("Authorization"), "Bearer ")
-		if got == "" || got != token {
+		header := r.Header.Get("Authorization")
+		if len(header) <= len(prefix) || !strings.EqualFold(header[:len(prefix)], prefix) {
+			http.Error(w, "unauthorized", http.StatusUnauthorized)
+			return
+		}
+		got := strings.TrimSpace(header[len(prefix):])
+		if got == "" || subtle.ConstantTimeCompare([]byte(got), []byte(token)) != 1 {
 			http.Error(w, "unauthorized", http.StatusUnauthorized)
 			return
 		}

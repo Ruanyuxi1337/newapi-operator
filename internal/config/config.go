@@ -40,10 +40,6 @@ type Config struct {
 	HTTPAddr  string
 	HTTPToken string
 
-	// MetricsAddr is empty by default: the metrics listener is opt-in so the
-	// process never opens a port the operator did not ask for.
-	MetricsAddr string
-
 	LogLevel  string
 	LogFormat string
 }
@@ -60,7 +56,6 @@ func Load() (*Config, error) {
 		Transport:    Transport(strings.ToLower(envOr("MCP_TRANSPORT", "stdio"))),
 		HTTPAddr:     envOr("MCP_HTTP_ADDR", "127.0.0.1:8080"),
 		HTTPToken:    os.Getenv("MCP_HTTP_TOKEN"),
-		MetricsAddr:  os.Getenv("MCP_METRICS_ADDR"),
 		LogLevel:     envOr("LOG_LEVEL", "info"),
 		LogFormat:    envOr("LOG_FORMAT", "text"),
 	}

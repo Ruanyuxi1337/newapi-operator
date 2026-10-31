@@ -111,7 +111,10 @@ func (c *Client) BaseURL() string { return c.baseURL }
 // json.RawMessage, or any value that encodes to JSON.
 func (c *Client) Do(ctx context.Context, method, path string, query url.Values, body any) (*Response, error) {
 	method = strings.ToUpper(strings.TrimSpace(method))
-	if !strings.HasPrefix(path, "/api/") && path != "/api" {
+	// Path allowlist: admin calls only, and no way to climb out of /api/.
+	// net/http sends the path verbatim, so a server that normalises dot
+	// segments could otherwise route /api/../v1/... to the relay surface.
+	if !validAdminPath(path) {
 		return nil, fmt.Errorf("refusing to call %q: admin calls must target /api/*", path)
 	}
 	if c.readOnly && isMutating(method) {
@@ -213,6 +216,28 @@ func sentinelFor(status int) error {
 	default:
 		return fmt.Errorf("unexpected status %d", status)
 	}
+}
+
+// validAdminPath reports whether p is an admin API path that cannot escape
+// /api/. Reject raw CR/LF, backslashes, repeated slashes, dot segments and
+// percent-encoded traversal before anything reaches net/http.
+func validAdminPath(p string) bool {
+	if p != "/api" && !strings.HasPrefix(p, "/api/") {
+		return false
+	}
+	if strings.ContainsAny(p, "\\\r\n	 ?#") || strings.Contains(p, "//") {
+		return false
+	}
+	lower := strings.ToLower(p)
+	if strings.Contains(lower, "%2e") || strings.Contains(lower, "%2f") || strings.Contains(lower, "%5c") {
+		return false
+	}
+	for _, seg := range strings.Split(p, "/") {
+		if seg == "." || seg == ".." {
+			return false
+		}
+	}
+	return true
 }
 
 func isMutating(method string) bool {

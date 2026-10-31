@@ -87,7 +87,4 @@ func TestLoadDefaults(t *testing.T) {
 	if cfg.Transport != TransportStdio {
 		t.Errorf("Transport = %q, want stdio", cfg.Transport)
 	}
-	if cfg.MetricsAddr != "" {
-		t.Errorf("metrics listener must be opt-in, got %q", cfg.MetricsAddr)
-	}
 }
