@@ -14,11 +14,11 @@ jobs:
     name: Build, vet, test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v7
         with:
-          go-version: '1.25'
+          go-version: '1.26'
           cache: true
 
       - name: gofmt
@@ -29,6 +29,11 @@ jobs:
             echo "$unformatted"
             exit 1
           fi
+
+      - name: go mod tidy
+        run: |
+          go mod tidy
+          git diff --exit-code go.mod go.sum
 
       - name: go vet
         run: go vet ./...
@@ -47,16 +52,30 @@ jobs:
           ./bin/routesync --tag "$(grep -oP 'UpstreamVersion = "\K[^"]+' internal/spec/routes_gen.go)" \
             --out /dev/null --check
 
+  vuln:
+    name: govulncheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26'
+          cache: true
+
+      - name: Scan
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.9.0 ./...
+
   drift:
     name: Upstream drift check
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v7
         with:
-          go-version: '1.25'
+          go-version: '1.26'
           cache: true
 
       - name: Compare embedded table with the newest New API release

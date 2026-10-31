@@ -1,4 +1,4 @@
-.PHONY: build test vet fmt lint sync sync-baseline smoke clean
+.PHONY: build install docker test vet fmt lint sync sync-baseline smoke clean
 
 BIN_DIR := bin
 VERSION := $(shell git describe --tags --always --dirty 2>/dev/null || echo dev)
@@ -9,6 +9,12 @@ build:
 	go build -ldflags "$(LDFLAGS)" -o $(BIN_DIR)/newapi-operator ./cmd/newapi-operator
 	go build -ldflags "$(LDFLAGS)" -o $(BIN_DIR)/routesync ./cmd/routesync
 	@echo "built $(BIN_DIR)/newapi-operator $(BIN_DIR)/routesync ($(VERSION))"
+
+install:
+	go install ./cmd/newapi-operator
+
+docker:
+	docker build --build-arg VERSION=$(VERSION) -t newapi-operator:$(VERSION) .
 
 test:
 	go test ./... -race -count=1

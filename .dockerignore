@@ -1,0 +1,12 @@
+.git
+.gitignore
+.github
+bin
+docs
+*.md
+LICENSE
+Makefile
+.env
+.env.*
+coverage.*
+*.test
