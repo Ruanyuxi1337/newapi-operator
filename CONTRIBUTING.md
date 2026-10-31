@@ -18,6 +18,8 @@ Both must be clean. CI runs the same commands.
    that is where the nested-body and body-carried-id contracts are pinned.
 4. If the endpoint is new in a *newer* New API release, sync the route table
    first (`make sync`) so `api_endpoints` can find it.
+5. Update `docs/TOOLS.md` and the tool table in both READMEs if the surface
+   changed.
 
 ## Changing the route table
 
@@ -43,3 +45,17 @@ Open an issue with the output of:
 ```
 
 Missing routes appear as `+`, routes upstream removed as `-`.
+
+## Releasing
+
+Releases are cut from `main` by pushing a tag; `.github/workflows/release.yml`
+runs GoReleaser, which builds linux/darwin/windows binaries for amd64 and arm64,
+writes `checksums.txt`, and publishes the GitHub release.
+
+```bash
+git tag vX.Y.Z
+git push origin vX.Y.Z
+```
+
+The version stamped into the binaries comes from the tag, so do not build
+release artifacts by hand.
