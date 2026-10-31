@@ -27,6 +27,12 @@ cd newapi-operator
 make build
 ```
 
+也可以只安装服务器二进制（需要 Go 1.26+）：
+
+```bash
+go install github.com/Ruanyuxi1337/newapi-operator/cmd/newapi-operator@latest
+```
+
 在 New API 面板生成访问令牌：**头像 → 个人设置 → 生成访问令牌**。
 
 > 用访问令牌，不要用中转 Key（`sk-…`），也不要用登录密码。New API 单用户只允许

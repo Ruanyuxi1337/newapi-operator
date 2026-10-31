@@ -29,6 +29,12 @@ cd newapi-operator
 make build
 ```
 
+Or install just the server binary with Go (Go 1.26+):
+
+```bash
+go install github.com/Ruanyuxi1337/newapi-operator/cmd/newapi-operator@latest
+```
+
 Create an access token in New API: **avatar → Personal settings → Generate
 access token**.
 
