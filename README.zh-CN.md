@@ -1,4 +1,4 @@
-# newapi-operator
+# New API 管理 MCP（newapi-operator）
 
 [![CI](https://github.com/Ruanyuxi1337/newapi-operator/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Ruanyuxi1337/newapi-operator/actions/workflows/ci.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/Ruanyuxi1337/newapi-operator.svg)](https://pkg.go.dev/github.com/Ruanyuxi1337/newapi-operator)
@@ -7,7 +7,10 @@
 
 [English](README.md) | 中文
 
-一个 MCP 服务器，让 AI Agent 完整接管自建的
+> 仓库名里的 **operator** 指“运维程序 / 控制器”（和 Kubernetes operator 同源），
+> 不是编程语言里的“运算符”。中文语境下，这个项目就是 **New API 管理 MCP**。
+
+一个用于 **New API 管理**的 MCP 服务器，让 AI Agent 完整接管自建的
 [New API](https://github.com/QuantumNous/new-api) 网关：渠道、下游 Key、用户、
 额度、定价、调用日志，以及运行版本暴露的其余全部管理接口。
 
