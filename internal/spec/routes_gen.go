@@ -3,7 +3,7 @@
 package spec
 
 // UpstreamVersion is the New API git tag this table was extracted from.
-const UpstreamVersion = "v1.0.0-rc.47"
+const UpstreamVersion = "v1.0.0-rc.51"
 
 // Routes is every admin (method, path) pair registered by that release.
 var Routes = []Route{
@@ -20,6 +20,9 @@ var Routes = []Route{
 	{Method: "POST", Path: "/api/channel/:id/codex/usage/reset", Group: "channel", Source: "channel-router.go"},
 	{Method: "GET", Path: "/api/channel/:id/codex/usage/reset-credits", Group: "channel", Source: "channel-router.go"},
 	{Method: "POST", Path: "/api/channel/:id/key", Group: "channel", Source: "channel-router.go"},
+	{Method: "GET", Path: "/api/channel/:id/plugin_credentials", Group: "channel", Source: "channel-router.go"},
+	{Method: "POST", Path: "/api/channel/:id/plugin_login", Group: "channel", Source: "channel-router.go"},
+	{Method: "POST", Path: "/api/channel/:id/plugin_login/continue", Group: "channel", Source: "channel-router.go"},
 	{Method: "GET", Path: "/api/channel/:id/sglang/status", Group: "channel", Source: "channel-router.go"},
 	{Method: "POST", Path: "/api/channel/:id/status", Group: "channel", Source: "channel-router.go"},
 	{Method: "GET", Path: "/api/channel/:id/vllm/status", Group: "channel", Source: "channel-router.go"},
@@ -39,6 +42,7 @@ var Routes = []Route{
 	{Method: "POST", Path: "/api/channel/ollama/pull/stream", Group: "channel", Source: "channel-router.go"},
 	{Method: "GET", Path: "/api/channel/ollama/version/:id", Group: "channel", Source: "channel-router.go"},
 	{Method: "GET", Path: "/api/channel/ops", Group: "channel", Source: "channel-router.go"},
+	{Method: "POST", Path: "/api/channel/plugin_login/callback", Group: "channel", Source: "channel-router.go"},
 	{Method: "GET", Path: "/api/channel/priority/order", Group: "channel", Source: "channel-router.go"},
 	{Method: "POST", Path: "/api/channel/priority/reorder", Group: "channel", Source: "channel-router.go"},
 	{Method: "GET", Path: "/api/channel/search", Group: "channel", Source: "channel-router.go"},
@@ -51,6 +55,7 @@ var Routes = []Route{
 	{Method: "GET", Path: "/api/channel/test/:id", Group: "channel", Source: "channel-router.go"},
 	{Method: "GET", Path: "/api/channel/update_balance", Group: "channel", Source: "channel-router.go"},
 	{Method: "GET", Path: "/api/channel/update_balance/:id", Group: "channel", Source: "channel-router.go"},
+	{Method: "GET", Path: "/api/channel/update_balance/task/:task_id", Group: "channel", Source: "channel-router.go"},
 	{Method: "POST", Path: "/api/channel/upstream_updates/apply", Group: "channel", Source: "channel-router.go"},
 	{Method: "POST", Path: "/api/channel/upstream_updates/apply_all", Group: "channel", Source: "channel-router.go"},
 	{Method: "POST", Path: "/api/channel/upstream_updates/detect", Group: "channel", Source: "channel-router.go"},
@@ -128,6 +133,7 @@ var Routes = []Route{
 	{Method: "GET", Path: "/api/option/model_pricing", Group: "option", Source: "api-router.go"},
 	{Method: "PATCH", Path: "/api/option/model_pricing", Group: "option", Source: "api-router.go"},
 	{Method: "POST", Path: "/api/option/model_pricing/convert", Group: "option", Source: "api-router.go"},
+	{Method: "GET", Path: "/api/option/model_pricing/issues", Group: "option", Source: "api-router.go"},
 	{Method: "POST", Path: "/api/option/model_pricing/preview", Group: "option", Source: "api-router.go"},
 	{Method: "PUT", Path: "/api/option/passkey/domains", Group: "option", Source: "api-router.go"},
 	{Method: "POST", Path: "/api/option/payment_compliance", Group: "option", Source: "api-router.go"},
@@ -178,6 +184,8 @@ var Routes = []Route{
 	{Method: "POST", Path: "/api/redemption/batch", Group: "redemption", Source: "api-router.go"},
 	{Method: "DELETE", Path: "/api/redemption/invalid", Group: "redemption", Source: "api-router.go"},
 	{Method: "GET", Path: "/api/redemption/search", Group: "redemption", Source: "api-router.go"},
+	{Method: "POST", Path: "/api/request_plugin/dry_run", Group: "request_plugin", Source: "api-router.go"},
+	{Method: "PUT", Path: "/api/request_plugin/instances", Group: "request_plugin", Source: "api-router.go"},
 	{Method: "GET", Path: "/api/reset_password", Group: "reset_password", Source: "api-router.go"},
 	{Method: "GET", Path: "/api/setup", Group: "setup", Source: "api-router.go"},
 	{Method: "POST", Path: "/api/setup", Group: "setup", Source: "api-router.go"},
@@ -210,6 +218,7 @@ var Routes = []Route{
 	{Method: "GET", Path: "/api/system-info/instances", Group: "system-info", Source: "api-router.go"},
 	{Method: "DELETE", Path: "/api/system-info/instances/:node_name", Group: "system-info", Source: "api-router.go"},
 	{Method: "DELETE", Path: "/api/system-info/stale-instances", Group: "system-info", Source: "api-router.go"},
+	{Method: "GET", Path: "/api/system-info/sync", Group: "system-info", Source: "api-router.go"},
 	{Method: "GET", Path: "/api/system-task/:task_id", Group: "system-task", Source: "api-router.go"},
 	{Method: "GET", Path: "/api/system-task/current", Group: "system-task", Source: "api-router.go"},
 	{Method: "DELETE", Path: "/api/system-task/history", Group: "system-task", Source: "api-router.go"},

@@ -79,6 +79,24 @@
  },
  {
   "method": "GET",
+  "path": "/api/channel/:id/plugin_credentials",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/:id/plugin_login",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "POST",
+  "path": "/api/channel/:id/plugin_login/continue",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
   "path": "/api/channel/:id/sglang/status",
   "group": "channel",
   "source": "channel-router.go"
@@ -192,6 +210,12 @@
   "source": "channel-router.go"
  },
  {
+  "method": "POST",
+  "path": "/api/channel/plugin_login/callback",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
   "method": "GET",
   "path": "/api/channel/priority/order",
   "group": "channel",
@@ -260,6 +284,12 @@
  {
   "method": "GET",
   "path": "/api/channel/update_balance/:id",
+  "group": "channel",
+  "source": "channel-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/channel/update_balance/task/:task_id",
   "group": "channel",
   "source": "channel-router.go"
  },
@@ -726,6 +756,12 @@
   "source": "api-router.go"
  },
  {
+  "method": "GET",
+  "path": "/api/option/model_pricing/issues",
+  "group": "option",
+  "source": "api-router.go"
+ },
+ {
   "method": "POST",
   "path": "/api/option/model_pricing/preview",
   "group": "option",
@@ -1026,6 +1062,18 @@
   "source": "api-router.go"
  },
  {
+  "method": "POST",
+  "path": "/api/request_plugin/dry_run",
+  "group": "request_plugin",
+  "source": "api-router.go"
+ },
+ {
+  "method": "PUT",
+  "path": "/api/request_plugin/instances",
+  "group": "request_plugin",
+  "source": "api-router.go"
+ },
+ {
   "method": "GET",
   "path": "/api/reset_password",
   "group": "reset_password",
@@ -1214,6 +1262,12 @@
  {
   "method": "DELETE",
   "path": "/api/system-info/stale-instances",
+  "group": "system-info",
+  "source": "api-router.go"
+ },
+ {
+  "method": "GET",
+  "path": "/api/system-info/sync",
   "group": "system-info",
   "source": "api-router.go"
  },
